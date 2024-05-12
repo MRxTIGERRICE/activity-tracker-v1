@@ -13,7 +13,7 @@ gem "sprockets-rails"
 #new-add
 gem "rack-cors"
 
-gem "mysql2", "~> 0.5"
+gem "pg", "~> 1.1"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"

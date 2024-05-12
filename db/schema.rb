@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_05_12_094741) do
-  create_table "blacklist_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "blacklist_items", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "domain"
     t.integer "time_limit"
@@ -20,7 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_12_094741) do
     t.index ["user_id"], name: "index_blacklist_items_on_user_id"
   end
 
-  create_table "days", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "days", force: :cascade do |t|
     t.bigint "tab_id", null: false
     t.integer "counter"
     t.date "date"
@@ -31,11 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_12_094741) do
     t.index ["tab_id"], name: "index_days_on_tab_id"
   end
 
-  create_table "students", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
-  end
-
-  create_table "tabs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tabs", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "url"
     t.integer "counter"
@@ -46,7 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_12_094741) do
     t.index ["user_id"], name: "index_tabs_on_user_id"
   end
 
-  create_table "time_intervals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "time_intervals", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.date "day"
     t.string "domain"
@@ -56,7 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_12_094741) do
     t.index ["user_id"], name: "index_time_intervals_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
