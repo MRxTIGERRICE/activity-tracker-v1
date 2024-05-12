@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tab: one
+  counter: 1
+  date: 2024-05-12
+  summary: 1
+
+two:
+  tab: two
+  counter: 1
+  date: 2024-05-12
+  summary: 1
